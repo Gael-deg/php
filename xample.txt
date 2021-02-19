@@ -1,0 +1,58 @@
+<?php
+$f_name = "Gab";
+$l_name = "Deg";
+$age = 22;
+$height = 1.84;
+$can_vote = true;
+$address = array('street' => 'dotong st', 'city'=>'CSJDM');
+$state = null;
+define('PI', 3.1415);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Php Tutorial</title>
+</head>
+<body>
+	<p>Name: <?php echo $f_name . ' ' . $l_name; ?></p>
+	<form action="xample.php" method="get">
+		<label>Your State:</label>
+		<input type="text" name="state"><br>
+		<label>Number 1:</label>
+		<input type="text" name="num1"><br>
+		<label>Number 2:</label>
+		<input type="text" name="num2"><br>
+		<input type="submit" name="submit" value="Submit">	
+	</form>
+	<?php
+	if (isset($_GET) && array_key_exists('state', $_GET)) {
+		$state = $_GET['state'];
+		if (isset($state) && !empty($state)) {
+			echo "You live in" . $state . '<br>' ;
+			echo "$f_name lives in $state <br>";
+			# code...
+		}
+		if (count($_GET) >= 3) {
+			$num_1 = $_GET['num1'];
+			$num_2 = $_GET['num2'];
+			echo "$num_1 + $num_2 = " . ($num_1 + $num_2) . 
+			"<br>";
+			echo "$num_1 - $num_2 = " . ($num_1 - $num_2) . 
+			"<br>";
+			echo "$num_1 * $num_2 = " . ($num_1 * $num_2) . 
+			"<br>";
+			echo "$num_1 / $num_2 = " . ($num_1 / $num_2) . 
+			"<br>";
+			echo "$num_1 % $num_2 = " . ($num_1 % $num_2) . 
+			"<br>";
+			echo "$num_1 / $num_2 = " . (intdiv($num_1 , 
+				$num_2)) . 
+			"<br>";
+
+	# code...
+		}
+		# code...
+	}
+	 ?>
+</body>
+</html>
